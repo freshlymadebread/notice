@@ -1,0 +1,53 @@
+1. let 和const
+		@let ： 1.代码块内有效 
+					 2. 不能重复声明 
+					 3. for 循环计数器很适合用 let 
+					 4.不存在变量提升
+		@const： 1. 保证变量指向的内存地址所保存的数据不允许改动。
+		@暂时性死区:，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。代码块会对这些命令声明的变量从块的开始就形成一个‘封闭作用域’。代码块内，在声明变量 PI 之前使用它会报错。
+		@let和const class声明的变量不在不属于顶层对象的属性
+2. 解构赋值：一种简洁方便的赋值方式
+		1. 数组模型结构  按照对应的index进行赋值
+		2.对象模型结构  按照对应的键值进行赋值
+			...a  扩展运算符|剩余运算符
+3. symbol
+		用于生成独一无二的值，最大的用法是用来定义对象的唯一属性名。
+		基本用法 ：let sy =Symbol("key")
+							console.log(sy);   // Symbol(KK)
+							typeof(sy);        // "symbol"
+		相同参数的symbol值不同
+			let a1 = Symbol("123")
+			let a2 = Symbol("123")
+			a1 == a2   //false
+		Symbol.for("key1")  //在全局symbol注册表中查询是否有key值为"key1"的symbol注册记录，如果有返回改symbol，没有则新建并注册返回
+		Symbol.keyFor() 返回一个已登记的 Symbol 类型值的 key ，
+			let yellow1 = Symbol.for("Yellow");
+			Symbol.keyFor(yellow1); 
+4. symbol延伸：对象属性的获取方法
+			object.keys()   返回对象的可枚举属性和方法的名称 数组。
+			Object.getOwnPropertyNames()  返回的数组的所有属性(可枚举或不可枚举)直接找到给定对象。
+			for in 循环 返回直接定义在该对象上的可枚举属性
+			Object.getOwnPropertySymbols() 
+			Reflect.ownKeys()
+			"toString" in x 可以判断属性是否在x中 
+			x.propertyIsEnumerable("key") 判断key是否是可枚举的
+
+			题目：输出对象中值大于2的key的数组
+			var data = {a: 1, b: 2, c: 3, d: 4};
+			Object.keys(data).filter(function(x) { return 1 ;}) //使用Object.keys(data) 返回键值数组，使用过滤函数筛选
+			期待输出：[“c”,”d”]请问1处填什么？
+			正确答案：1 ：data[x]>2
+5. object 常用的方法
+		Object.getOwnPropertyNames()   返回的数组的所有属性(可枚举或不可枚举)直接找到给定对象。
+		Object.keys()  返回对象的可枚举属性和方法的名称 数组。
+		Object.values() 与key对应返回可枚举属性和方法的值
+		Object.create() Object.create(proto, [propertiesObject])  在已有对象的基础上添加属性并返回 常见于原型继承的实现
+		Object.hasOwnProperty() 对对象使用 判断对象是够具有自身属性
+		Object.assign() 用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。浅拷贝
+			常见用途：1. 为对象添加属性
+							 2. 为对象添加方法
+							 3. 克隆对象
+							 4. 合并多个对象
+							 5. 为属性指定默认值
+		Object.getPrototypeOf(obj) 返回obj的原型对象
+		Object.defineProperty(obj,“propertyName”,descriptor:{})  需要加深理解

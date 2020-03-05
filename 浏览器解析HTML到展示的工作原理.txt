@@ -1,0 +1,62 @@
+浏览器内部工作原理
+1. 浏览器的主要组件：
+		用户界面 —— 地址栏，back/front按钮，书签
+		浏览器引擎 —— 用来查询及操作渲染引擎的接口
+		渲染引擎 —— 用来显示请求的内容
+		网络 —— 完成网络调用（具体不清）
+		UI后端 —— 回执类似组合选择框及对话框的（具体不清）
+		JS解释器 —— 解释执行JS代码。微任务宏任务queuen,任务执行图
+		数据存储 —— cookie localStorage sessionStorage
+				chrome为每个Tab页面分配了各自的渲染引擎
+2. 渲染引擎
+	 chrome 和safari使用 webkit；-webkit-
+	 firefox使用 mozilla  -moz-
+	 渲染主流程：
+	 1. 获取请求文档的内容 
+	 2. 解析html以构建dom树   	将标签转化为内容树中的dom节点
+		 ->构建render树        	外部CSS文件及style标签中的样式信息
+		 ->布局render树         	将确定每个节点在屏幕上的确切坐标
+		 ->绘制render树         	遍历render树，并使用UI后端层绘制每个节点
+3. 解析与DOM树构建
+	解析：将文档转换为具有一定意义的结构，如节点树，称为解析树或语法树
+	解析器：分为两个子过程——词法分析和语法分析
+		词法分析：将输入分解为符号，跳过无关空白和换行，符号即基本有效单元的集合， 对应词法分析器
+		语法分析：对应语言应用语法规则。   对应解析器
+	解析过程是迭代的，解析器每从词法分析器取得一个新的符号，就试着匹配一条语法规则，如果匹配到了则，将节点添加到解析树上，然后请求另一个字符。如果没有配到则在解析器内部报存改符号没继续取下一个符号，直至所有符号被匹配，如果最终没有找到匹配的规则，报错
+	通过词法分析算法和语法分析算法构建DOM树，构建完毕后触发一个load事件，
+	符号识别算法:1. state处于“Data State状态 2. 遇到< 则 state 变为tag open状态，直至遇到>,期间遇到的字母变为标签名交给树构造器处理，同时变为 state 变为“Data State状态
+4.渲染树构建
+	RenderObject是Webkit的渲染对象基类
+	class RenderObject{
+		virtual void layout();
+		virtual void paint(PaintInfo);
+		virtual void rect repaintRect();
+		Node* node;//the DOM node
+		RenderStyle* style;// the computed style
+		RenderLayer* containgLayer; //the containing z-index layer
+	}
+5.布局
+	当渲染对象被创建并添加到树中，它们并没有位置和大小，计算这些值的过程称为layout或reflow。
+	布局是一个递归的过程，由根渲染对象开始，它对应html文档元素，布局继续递归的通过一些或所有的frame层级，为每个需要几何信息的渲染对象进行计算。
+	Dirty bit系统
+　　为了不因为每个小变化都全部重新布局，浏览器使用一个dirty bit系统，一个渲染对象发生了变化或是被添加了，就标记它及它的children为dirty——需要layout。存在两个标识——dirty及children are dirty，children are dirty说明即使这个渲染对象可能没问题，但它至少有一个child需要layout。
+	全局layout和增量layout
+		全局layout是同步的，增量layout是异步的
+	layout过程
+　　layout一般有下面这几个部分：
+　　1. parent渲染对象决定它的宽度
+　　2. parent渲染对象读取chilidren，并：
+　　　　a. 放置child渲染对象（设置它的x和y）
+　　　　b. 在需要时（它们当前为dirty或是处于全局layout或者其他原因）调用child渲染对象的layout，这将计算child的高度
+　　　　c.parent渲染对象使用child渲染对象的累积高度，以及margin和padding的高度来设置自己的高度－这将被parent渲染对象的parent使用
+　　　　d. 将dirty标识设置为false
+6.绘制
+	也分为全局绘制和增量绘制
+	一个块渲染对象的堆栈顺序是：
+	　1.	 背景色
+　　2. 背景图
+　　3. border
+　　4. children
+　　5. outline
+7.
+8.

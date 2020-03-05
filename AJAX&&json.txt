@@ -1,0 +1,63 @@
+AJAX&&json
+
+1. 如何工作
+	网页中发生一个事件（页面加载、按钮点击）
+	由 JavaScript 创建 XMLHttpRequest 对象
+	XMLHttpRequest 对象向 web 服务器发送请求
+	服务器处理该请求
+	服务器将响应发送回网页
+	由 JavaScript 读取响应
+	由 JavaScript 执行正确的动作（比如更新页面）
+2. Ajax 的核心是 XMLHttpRequest 对象。
+		XMLHttpRequest 对象方法
+			new XMLHttpRequest()	创建新的 XMLHttpRequest 对象
+			abort()	取消当前请求
+			getAllResponseHeaders()	返回头部信息
+			getResponseHeader()	返回特定的头部信息
+			open(method, url, async, user, psw)	规定请求
+				method：请求类型 GET 或 POST
+				url：文件位置
+				async：true（异步）或 false（同步）
+				user：可选的用户名称
+				psw：可选的密码
+			send()	将请求发送到服务器，用于 GET 请求
+			send(string)	将请求发送到服务器，用于 POST 请求
+			setRequestHeader()	向要发送的报头添加标签/值对
+		XMLHttpRequest 对象属性
+			readyState	保存 XMLHttpRequest 的状态。
+				0：请求未初始化
+				1：服务器连接已建立
+				2：请求已收到
+				3：正在处理请求
+				4：请求已完成且响应已就绪
+			onreadystatechange	定义当 readyState 属性发生变化时被调用的函数 会调用四次
+			        xmlhttp.onreadystatechange = function() {
+			            if (this.readyState == 4 && this.status == 200) { //只有当readyState为4且status为200时说明收到数据
+			                document.getElementById("txtHint").innerHTML = this.responseText;
+			            }
+			        };
+			responseText	以字符串返回响应数据
+			responseXML	以 XML 数据返回响应数据
+			status	返回请求的状态号
+				200: "OK"
+				403: "Forbidden"
+				404: "Not Found"
+			statusText	返回状态文本（比如 "OK" 或 "Not Found"）
+3. 相比于XML json的好处
+	XML 比 JSON 更难解析。
+	JSON 被解析为可供使用的 JavaScript 对象。
+	对于 AJAX 应用程序，JSON 比 XML 更快更易用：
+4. Json 格式要求
+	JSON 中的字符串必须用双引号包围。
+	JSON 中的数字必须是整数或浮点数。
+	JSON 中的值可以是对象。
+	JSON 中的值可以是数组。
+5.
+在从 web 服务器接收数据时，数据永远是字符串。
+
+6.JSONP
+	JSONP 指的是 JSON with Padding。
+	从另一个域请求文件会引起问题，由于跨域政策。
+	从另一个域请求外部脚本没有这个问题。
+	JSONP 利用了这个优势，并使用 script 标签替代 XMLHttpRequest 对象。
+

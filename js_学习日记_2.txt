@@ -1,0 +1,63 @@
+1. map set
+
+2. 匿名函数
+
+3. 提前声明（hoisting）
+    var uname = 'jack'
+    function change() {
+        alert(uname) // ?
+        var uname = 'lily'
+        alert(uname)  //?
+    }
+    change()
+    输出：undefined lily
+
+4. 数据类型：原始数据类型5种：undefined null boolen number string 存放在栈
+            对象数据类型3种：
+
+5.深拷贝和浅拷贝
+        不够深的深拷贝：object.assign（{}，obj） {...obj}
+        深拷贝的一种：objClone = JSON.parse(JSON.stringify(obj),);
+6.严格模式的限制： "use strict"
+        1. 变量必须先声明在使用
+        2.this指针不能指向全局对象；不然的话内存溢出
+7.  数组方法pop() push() unshift() shift()
+    push()尾部添加 pop()尾部删除
+    unshift()头部添加 shift()头部删除
+8. 如何阻止默认事件
+        1. 重写 2. ev.preventDefault();
+9.Javascript的事件流模型都有什么?
+    “事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播
+    “事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的
+    “DOM事件流”：三个阶段：事件捕捉，目标阶段，事件冒泡
+    先执行外层的事件捕捉，然后内层的事件捕捉，然后内层的事件冒泡，然后外层的事件冒泡
+    addEventListener（event，function（）{}，false|true）
+10.判断 x 类型++++++++++++++++++++++++++++
+.6
+    typeof x
+    x instanceof Array
+    x.__prop__.constructor.toString()
+   判断null
+        x === null   或者  !x && (typeof x) != "undefined" && x !=0
+   判断 NaN
+     isNaN(x)
+     isFinite(x)
+11. 将类数组转化为数组 ————最常见的类数组，字符串
+    Array.prototype.join.call("123333","!")
+    使用Array.from(类数组，map())
+        其中map 方法用于对每个数组的元素进行操作
+12. 布尔值为 false 的值：0 NaN "" undefined Null
+13. function fn(){}  与var fn = function(){} 区别
+        function fn(){}  会将整个函数体提前到script块的前面去
+        var fn=function(){}定义的函数，只是把函数名的定义提前到script块的前面，函数体还在原位置！
+
+
+
+
+
+
+
+
+
+
+

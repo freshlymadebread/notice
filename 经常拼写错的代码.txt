@@ -1,0 +1,16 @@
+经常拼写错的代码：
+rotate 
+
+transform 转型 
+translate 转变 动词
+translation 转变过渡 名词
+keyframes 动画
+align-content	
+column
+reverse
+justify-content
+align-items 
+opacity：0.4
+text-decoration
+pormpt(text,deflautText)
+stretch 属性 一般用于 布局中 justify-items justify-context align-items align-context

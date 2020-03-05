@@ -1,0 +1,47 @@
+CSS3
+-moz-     firefox
+-webkit-  Chrome 
+
+1.边框：
+    border-radius:5px ;  
+    border-radius: 50%;/*这是个圆圈*/
+    box-shadow: 5px 5px 5px red
+    border-image
+2.字体的声明，@font-face{
+                font-family:name
+                src:
+            }
+3.transform 旋转 rotate（x角度，Y角度）
+            移动 translate（x移动，Y移动）
+            放缩 scale（x缩放，Y缩放）
+            翻转 skew（绕X轴，绕y轴）
+4.tanslation 过渡   
+            -webkit-transition:width 1s linear 2s ,background 1s linear 2s;
+            声 明 过 渡：过渡属性 时间 是否线性 延迟时间
+5. 动画  声明：@keyframes myfirst{
+                0%   {background: red; left:0px; top:0px;}
+                25%  {background: yellow; left:200px; top:0px;}
+                50%  {background: blue; left:200px; top:200px;}
+                75%  {background: green; left:0px; top:200px;}
+                100% {background: red; left:0px; top:0px;}
+                }
+        使用div{
+            animation-name: myfirst;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: running;
+            }.
+6.伪类  未访问、已访问、悬浮和活动链接
+        a:link    {color:blue;}
+        a:visited {color:blue;}
+        a:hover   {color:red;}
+        a:active  {color:yellow;}
+        first-letter
+        :before	p:before	在每个 <p> 元素的内容之前插入内容。	
+        :after
+        :first-child	p:first-child	选择属于父元素的第一个子元素且该子元素为<p>。
+        ::selection	::selection	选择被用户选取的元素部分。
+7. user-select:none

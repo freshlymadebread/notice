@@ -1,0 +1,27 @@
+数组去重
+1. 最快方法：利用对象键值
+function nosame (a,b){
+	var var arr = a.concat(b),
+			obj = {},
+			result = [];
+	for(let i = 0 ; i <arr.length;i++){
+		if(arr[i] in obj){
+		}
+		else{   
+		result.push(arr[i])
+			obj[arr[i]] = 1
+		}
+	}
+	return result;
+}
+
+改进： for (var i of arr){ //利用for of循环 注意：for of 循环一般用于对数组的遍历
+	if(!obj[i]){
+		result.push(i)
+			obj[i] = 1
+	}
+}
+2. 使用set
+	function nosame (a,b){
+		return Array.from(new set([...a,...b]))
+	}

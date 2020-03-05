@@ -1,0 +1,41 @@
+浏览器对象模型（Browser Object Model (BOM)）
+	所有浏览器都支持 window 对象。它代表浏览器的窗口。
+	所有全局 JavaScript 对象，函数和变量自动成为 window 对象的成员。
+	全局变量是 window 对象的属性。
+	全局函数是 window 对象的方法。
+1. window 
+		.innerWidth
+		.innerHigth
+		window.open() - 打开新窗口
+		window.close() - 关闭当前窗口
+		window.moveTo() -移动当前窗口
+		window.resizeTo() -重新调整当前窗口
+2. window.screen
+		screen.width
+		screen.height
+		screen.availWidth
+		screen.availHeight
+		screen.colorDepth
+		screen.pixelDepth
+3. window.Location
+		用于获取当前页面地址并把浏览器重定向到新页面
+		window.location.href 返回当前页面的 href (URL)
+		window.location.hostname 返回 web 主机的域名
+		window.location.pathname 返回当前页面的路径或文件名
+		window.location.protocol 返回使用的 web 协议（http: 或 https:）
+		window.location.assign 加载新文档
+4. Window History
+		history.back() - 等同于在浏览器点击后退按钮
+		history.forward() - 等同于在浏览器中点击前进按钮
+5. window.navigator 对象包含有关访问者的信息。(navigator:航海者)
+		navigator.cookieEnabled; cookie 是否可用
+		navigator.javaEnabled()  java 是否可用
+6. 弹出框
+		1. 警告框 alert
+		2. 确认框 confirm  var a= confirm ("sometext") 返回true or false
+		3. 提示输入框 prompt  var a= prompt ("sometext") 返回输入值或者返回null
+7. Timming事件
+		1. var a = setTimeOut(Fun , time)  clearTimeOut(a)
+		2. var a = setInterval(Fun ,time)  clearInterval(a)
+8. cookie  让您在网页中存储用户信息。
+		如果设置了新 cookie，则旧的 cookie 不会被覆盖。新的 Cookie 会被添加到 document.cookie，

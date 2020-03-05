@@ -1,0 +1,11 @@
+Jquray
+1. 选择器： $("")
+2. 获取/设置 元素内部的文本 element.text()/element.text(somehtml)
+3. 设置/获取元素的 HTML 内容： myElement.html("<p>Hello World</p>");/myElement.html()
+4. 
+		myElement.hide();
+		myElement.show();
+		myElement.css("font-size","35px");
+5.
+		$("#id").remove();
+		myElement.parent();

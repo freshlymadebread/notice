@@ -1,0 +1,74 @@
+css1
+0.css的权重
+	!important > 行内样式 > ID > 类、伪类、属性 > 标签名 > 继承 > 通配符
+	标签指定式选择器为各个权重相加
+0.1 层叠性
+	即同一属性的规范，写在后边的样式会覆盖前边的样式
+1. 文本
+	color	设置文本颜色
+	direction	设置文本方向。
+	******line-height	设置行高。
+	******·-spacing	设置字符间距。
+	text-align	对齐元素中的文本。
+	******text-decoration	向文本添加修饰。
+	******text-indent	缩进元素中文本的首行。
+	text-shadow	设置文本阴影。CSS2 包含该属性，但是 CSS2.1 没有保留该属性。
+	******text-transform	控制元素中的字母。
+	unicode-bidi	设置文本方向。
+	******white-space	设置元素中空白的处理方式。transform:uppercase|capitalize|lowercase
+	******word-spacing	设置字间距。
+2. 	a:link 未访问链接
+		a:visited 已访问链接
+		a:hover 鼠标悬停
+		a:active 活动链接
+		一定要按照 如上顺序写。因为如果同时拥有 link和 hover时，后声明的CSS会覆盖前边的CSS，因此会展示后边的。 
+3. 常见的块元素：div ul ol dl li table  H1~H6 p pre(保留换行和空格)
+	 常见的行内元素：span input select strong em img abbr big i q textarea small u button a 
+	 块级元素特点：1. 元素前后换行，
+	 						  2.可以设置width和height，自动铺满一行
+	 						  3. margin-top bottom padding 有用
+	 						  4. margin 会重叠（一个BFC下的相邻的两个块级元素margin竖直重叠）
+	 内联元素特点：1. 元素前后不会换行，知道一列排不下才会换行
+	 						  2.元素的width和height由内容撑开
+	 						  3. margin-top bottom padding 无效
+	 inline-block元素：1.可以设置宽高
+	 									2.在同一行内有不同高度内容的元素时，通常要设置对齐方式如vertical-align: top;来使元素顶部对齐。
+4. 后代选择器
+	 子代选择器 >
+	 兄弟选择器 ~
+	 相邻兄弟选择器 + 
+5. 定位：position： static  | relative | absolute | fixed;
+		1.static : 默认的；元素按照正常排版进行布局
+		2.relative ： 元素占据原来文档流中的位置，可以进行偏移，会造成覆盖
+		3.absolute ： 元素脱离文档流，根据最接近的已经定位的父元素进行定位
+		4.fix ：文档脱离文档流，根据窗口（？body）进行定位
+
+				文档流：元素排版按照文档中从上到下的顺序进行网页页面上从上到下从左到右的排版（可以想象成水管中的水【html文件】倒入方形容器中，会从上到下从左到右进行填充，这个流程叫做文档流）
+				脱离文档流：某个元素不按照从上到下从左到右的排版方式，其余元素类似看不见改元素
+				float脱离文档流后其他盒子会无视这个盒子但是，盒子内文本会为这个元素让出位置。
+				文档脱离文档流之后：1. 其他元素会上移（废话）
+													2. 脱离之后的元素，类似于单个被拿出来，因此不能像块元素一样宽度占据一行，毕竟父元素不确定，因此变现为block-inline
+6. 浏览器的工作原理：（从获取到html到展示到页面）
+			1. HTML页面的解析：1. 解码 2. 分词 3. 解析 4. 建dom树
+					词法解析器（符号识别器）：根据定制通用的词法规则将代码符号转化为语法解析器中可以理解的特定内容或特定符号，
+					语法解析器（树构建器）：根据词法解析器传递的符号和内容对Document树进行填充和修改，
+					解析完成后触发一个load事件
+			2. CSS解析
+				 CSS解析生成CSSrule树
+			3. dom树和style Rule构建render树
+				render树和dom树基本相同但是不包含dom树中不展示的部分，比如header或者隐藏的元素
+7. css的内外边界（padding/margin）的百分比是父元素宽度的百分比！！！！！！！！！important 其余均为对应父元素宽高
+8. em 和 rem的区别：em 一个font-size的长度，rem是根元素的font-size
+9.  clientHeight：元素的内容高度 
+		offsetHeight：元素的box-size高度
+		scrollHeight：元素的box-size高度
+		offsetTop   ：当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。
+		scrollTop   ：代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。
+10. dom和document 
+		dom Document Object Model，文档对象模型，
+			可以直接操作html文档对象
+		document 是dom树的根节点
+11. 伪类选择器 
+		selector：nth-of-type(n)  选择父元素的第n个selector
+		selector：nth-child(n)  选择父元素的第n个子元素 且该子元素满足selector 否则为空
+12. 

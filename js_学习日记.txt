@@ -1,0 +1,129 @@
+1. 字符串方法：
+	查找字符串中的字符串
+		.indexOf(str) 返回str首次出现的index
+		.LastIndexOf(str) 返回str最后一次出现的index
+		.search(str) 查询字符串可以使用Reg
+	提取部分字符串
+		.slice(start，end); 计数从0开始；要start不要end；类似数组的slice
+		.substring(start，end) 不可以使用负数参数
+		.substr(start, length)
+	替换字符串内容
+		.replace（old，new）支持Reg；对大小写敏感；使用/reg/i不敏感
+		.trim() 替换字符串两端的空格
+		起到作用与.replace(/^\s+|\s+$/g,"")一样
+		.concat(str) 用于拼接
+		.toUpperCase()
+		.toLowerCase()
+	提取字符串字符
+		.charAt(index)
+		.charCodeAt(index)
+	将字符串转化为数组
+		.split(str,[num]) 将字符串转化为数组，返回前num个值的数组
+2. 数字方法：
+		tostring()
+		toFixed(num) 化简到小数点后num位  toFixed(2) 常用金钱处理
+		Number.valueOf()  将Number转化为数字
+	把变量转换为数值
+		Number(str) 方法
+		parseInt(str) 方法
+		parseFloat(str) 方法
+	用于日期的 Number() 方法
+		Number(new Date("2019-04-15"));  返回1506729600000
+ 		Number.MIN_VALUE 和 MAX_VALUE 返回最小和最大的值
+3. 数组方法：
+	鉴别变量是否为数组
+		Array.isArray(Var)
+		Var instanceOf Array
+		function isArray(x) {
+		    return x.constructor.toString().indexOf("Array") > -1;
+		}
+	把数组转换为字符串
+		toString()
+		join(",")
+		pop push shift unshift
+	拼接数组
+		splice()  直接操作数组，用于向数组添加/删除元素
+		fruits.splice(2, 0, "Lemon", "Kiwi");
+	合并数组
+		concat() 创建新的数组 浅拷贝
+	裁剪数组
+		slice() 创建新数组， 浅拷贝
+	翻转数组
+		reverse()
+	排序
+		sort([function(a,b){return a,b}]) 默认排序比较ab字符串的首字母 function称为比值函数
+		对数字排序：sort((a,b)=>(a-b)) (para1，para2)=>{函数体} 只有一个参数时可省略括号，当函数体只有return函数可省略中括号
+		随机顺序排列数组：sort(()=>(Math.random()-0.5))用于生成不重复规定范围的数组
+			var getArray = (low,high,num)=>(new Array(high-low+1).fill(0).map((v,i)=>(i+low)).sort()()=>(Math.random()-0.5).filter((v,i)=>i<num))
+	查找最大/小数
+		Math.max.apply(obj,arr)  obj是指上下文  apply和call 都是对函数的调用
+		Math.min.apply(obj,arr)
+		也可以自己写 var getMax= (arr)=>{let max = arr[0];arr.forEach(v=>{if(v>max) max = v}); return max}
+	indexOf() lastIndexOf() find()
+4. 日期方法：
+	new Data(para) para 可以为S格式“YYYY-MM-DDTHH-MM-SS”
+	data.getHours()   data.setHours()
+5. Math对象
+	常用的方法
+		.round()
+		.ceil()
+		.floor()
+		.sqrt()
+		.pow(para1,para2)
+		.abs()
+		.sin(x*Math.PI/180)
+		.cos()
+	重要的方法
+		Math.floor(Math.random() * 10); 随机数0-9
+		function getRndInteger(min, max) {
+		    return Math.floor(Math.random() * (max - min) ) + min;
+		}  //生成从min到max 不包括max的随机数一个 如果都包括则要加1
+6. switch 使用的是严格等于 === 即变量类型也要相等
+7.let arr = ["a","b"];
+	for (a in arr) { 遍历键名
+	    console.log(a);//1,2
+	}
+	 
+	for (a of arr) { 遍历键值
+	    console.log(a);//a,b
+	}
+
+8. 数据类型
+	NaN 的数据类型是数值
+	数组的数据类型是对象
+9. 加快js性能的方法
+		1. 循环中减少不必要的访问
+		2. 尽量减少不必要的变量声明
+		3. 减少DOM访问  
+		4. 缩减DOM元素数量
+		5. 延迟JavaScript加载
+10. 闭包：使用匿名函数声明变量后，返回一个可以操作该变量的函数，每次调用该函数则操作该变量
+				作用——每次执行函数都会对该变量进行操作记录；且外部不能操作该变量，因为采用匿名函数的方法；
+		简单的闭包 var a = (function(){var a = 0;return function(){a++,return a}})()
+11. for 循环特点：每次都会重新声明一个变量而不是对变量进行修改值 因此使用let可以实现闭包报的功能
+		对闭包定义进行修改：声明变量后，返回一个可以操作该变量的函数，使得在该变量作用域外进行操作该变量
+		简单的闭包 var a =[] for (let i=0;i<5;i++){a[i]=()=>i}
+12. 由闭包想到的：作用域链（scope chain）由函数定义时的上下文决定
+								this上下文 由函数运行时的环境决定
+13. 因为对undefined进行检索变量，会导致typeError,因此调用时一般使用 tom.dog && tom.dog.color
+14. 深拷贝数组：
+15. 序列化对象：将对象转化为字符串或者将字符串转化为数组
+							Json.stringify()和 Json.parse()
+
+16. 动画实现的两种方式：
+		1. CSS3 animation关键字
+				首先定义keyframes：@keyframes myAnimation{ from：{width：100} ，to：{width：0} }
+				然后在元素的CSS中使用animation调用声明的动画：#animation{animation：name duration timefunction delay infinite direction  }
+				可以使用JavaScript 操纵元素的animation-paly-state ：paused 和running 来完成对动画的暂停操作
+		2. JS实现动画 采用setInterval(animation, time)
+				time 即刷新的频率
+				animation函数 实现每一帧中动画元素的某些改变，每过{{time}}ms，执行一次animation
+		3. css 伪动画
+				transition： 
+17. 习惯用法：if(a === undefined) a=[] =>  a= a||[];
+18. 函数的调用方法：主要区别于this 和存在差异  以及如何接受参数arguments
+		1. 函数的调用 this默认指向全局变量！惊了
+		2. 方法调用 this指向调用的方法
+		3. 构造方法调用 this指向创建的新对象 使用关键字New ；若无形参可以省略圆括号;如 new o.m()  那么m方法中的this 指向新变量
+		4. apply 和call 调用  function.apply(obj，arguments[])
+												  function.call(obj，argument1,argument2...)

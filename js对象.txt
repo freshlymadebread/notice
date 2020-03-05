@@ -1,0 +1,33 @@
+1. 原型继承
+		每个对象都有一个__proto__的原型对象指针，指向构造函数对象的prototype原型对象，
+		而prototype又是一个对象，又有自身的__proto__指针，因此最终指向Object的prototype，而它的__prop__指向null
+		每个函数对象都有一个__proto__指向构造函数的prototype，即Function的prototype，
+		每个原型对象又存在一个constructor指向构造方法。
+2. inherit(o)创建一个继承对象o的对象
+		function inherit(o){
+			if(o == null){
+				throw Error(name:"TypeRrror",message:"传入值为空")
+			}
+			var t = typeof o;
+			if(t !=="object" && t !== "function") 	throw Error(name:"TypeRrror",message:"传入值为不为对象或函数")
+			if(Object.creat) retrun Object.creat(o)
+			function f(){}
+			f.prototype = o
+			return new f()
+		}
+3. 获取传入参数的length
+		var len = book && book.subtitle && book.subtitle.length.
+		此处一方面使用了&&的短路功能，又使用了&&的返回功能
+4. throw Error (name : "TypeError",message:"you make a stupid mistakes")
+5. 检测属性的方法 按照范围排序
+		1. "X" in obj 判断obj对象的自有属性和继承属性中是否有属性 X   
+				除了使用in以外，可以直接使用 .运算符 查询是否有该属性 obj.X === undefined
+		2. obj.hasOwnProperty("X") 判断obj对象的自有属性中是否有属性 X  
+		3. propertyIsEnumerable 判断obj对象的自有属性中是否有可枚举属性 X  
+6. 判断一个对象与构造函数的关系（是否继承）
+		typeof
+		instanceod   x instanceof Array
+		x.__proto__ === Array.prototype
+		Array.isArray
+		x.constructor.toString().indexOd("Array") >-1
+7. 自身不相等 的对象为Nan

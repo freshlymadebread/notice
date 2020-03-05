@@ -1,0 +1,39 @@
+1. 查找dom元素
+	getElementById(id)
+	getElementsByTagName(id)
+	getElementsByClassName(id)
+2. 改变html元素
+	element.innerHTML= new html content
+	element.attribute= new value
+	element.setAttribute(attribute,value)
+	element.style.property = new style	
+3. 添加删除元素
+	document.createElement(element)	创建 HTML 元素
+	parent.removeChild(child);	删除 HTML 元素
+	document.appendChild(element)	添加 HTML 元素
+	document.insertBefore(element)	向父元素的子元素顶端添加 HTML 元素
+	parent.replaceChild(para, child);	替换 HTML 元素
+	document.write(text)	写入 HTML 输出流
+4. 添加事件处理程序
+	document.getElementById(id).onclick = function(){code}	
+	element.addEventListener(event, function, useCapture); //添加事件监听函数
+	element.removeEventListener("mousemove", myFunction); //移除事件监听函数
+5. dom 节点导航：
+	parentNode
+	childNodes[nodenumber]
+	firstChild
+	lastChild
+	nextSibling
+	previousSibling
+6. 节点属性
+		nodeName 属性，只读
+			元素节点的 nodeName 等同于标签名
+			属性节点的 nodeName 是属性名称
+			文本节点的 nodeName 总是 #text
+			文档节点的 nodeName 总是 #document
+7. HTMLCollection 和 Nodelist
+	getElementsByTagName() 返回HTMLCollection类数组 
+	childNodes 返回Nodelist类数组
+		既然是类数组，就可以使用Array.prototype.join.call()
+8. 事件触发机制（事件冒泡和时间捕捉）
+		H2太多 需要有点击事件，每个都监听太麻烦，于是只监听父元素，根据e.去实现监听 ————事件委托

@@ -1,0 +1,37 @@
+CSS Grid 网格布局
+	首先告诉渲染树，这块我使用的是grid，你要给我创建一个grid类型的渲染对象，然后告诉渲染树我这个网格有几行几列并且这每行的高度每列的宽度，同时告诉树如果有些元素作死想要跳出去定好的列表，就给他提供一个默认的扩展方式，然后告诉网格的元素如何布局排版：行排/列拍，紧密排/顺序排，然后是整个网格怎么放在容器中：justify-content align-content ，左中右拉伸，然后是元素在每个单元格内排版，就是justify-items align-items 放左中右拉伸。OKK，栅格的容器规则就搭建好了，然后去处理他的children们
+	元素属性：上来就先指定位置吧：行/列 起始/终止 网格线，强制指定单元格所占的空间和所处的位置，位置指定了，然后就是在所占据网格中的位置可以继承父容器的align和justify也可以使用self声明自己的
+
+1. 容器属性
+	display: grid指定一个容器采用网格布局。
+		默认情况下，容器元素都是块级元素，但也可以设成行内元素。
+		注意：设为网格布局后，容器子元素的float、display: inline-block、display: table-cell、vertical-align和column-*等设置失效
+	容器指定了网格布局以后，接着就要划分行和列。
+	grid-template-columns属性定义每一列的列宽，
+	grid-template-rows属性定义每一行的行高。
+	grid-template-columns ：100px 100px 100px; 三列 宽度都为100px
+	grid-template-rows ：100px 100px 100px;; 三行 高度都为100px
+		宽度除了直接使用px外可以用百分比，
+		repeat(count，宽度) 如果重复的值 可以使用repeat函数，如repeat(3, 33.33%); repeat(2, 100px 20px 80px);
+		auto-fill   grid-template-columns: repeat(auto-fill, 100px); 自动填充行 直到容器不能放置更多
+		fr关键字  使用fr会瓜分网格剩余空间，对网格进行填充  grid-template-columns: 150px 1fr 2fr; fr = （100% -150px）/3
+		minmax() grid-template-columns: 1fr 1fr minmax(100px, 1fr); 最小1009x 最大1fr
+	grid-row-gap 属性，设置行与行的间隔
+	grid-column-gap 属性，设置列与列的间隔
+	grid-gap 属性
+	grid-template-areas 指定区域名称
+*************grid-auto-flow  放置顺序 row和column，row dense column dense
+	justify-items 属性，start | end | center | stretch;元素怎么放在单元格中
+	align-items 属性，start | end | center | stretch;元素怎么放在单元格中
+	justify-content 属性，start | end | center | stretch | space-around | space-between | space-evenly; 网格怎么放在容器
+	align-content 属性，start | end | center | stretch | space-around | space-between | space-evenly;网格怎么放在容器
+
+2. 项目属性
+	grid-column-start属性：左边框所在的垂直网格线
+	grid-column-end属性：右边框所在的垂直网格线
+	grid-row-start属性：上边框所在的水平网格线
+	grid-row-end属性：下边框所在的水平网格线
+	grid-area属性指定项目放在哪一个区域。
+	justify-self 属性， 在单元格中的水平位置
+	align-self 属性， 在单元格中的竖直位置
+	place-self 属性
