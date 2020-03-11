@@ -12,7 +12,10 @@
     4.将多个文件合并
     5.不要用css表达式
     6.图片尽量用
-    7.如果页面过于庞大的话，可以采用翻页后载入方式
+    7.如果页面过于庞大的话，可以采用翻页后载入方式  lazy
+    8.缓存
+    9.图片不能缩放
+    10.js避免使用闭包，eval
 3.  HTTP服务器，默认的端口号为80/tcp（木马Executor开放此端口）； 
     HTTPS（securely transferring web pages）服务器，默认的端口号为443/tcp 443/udp； 
     Telnet（不安全的文本传送），默认端口号为23/tcp（木马Tiny Telnet Server所开放的端口）；

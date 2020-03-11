@@ -1,0 +1,37 @@
+webpack 的 loader 和 plugin
+loader:
+    怎样处理webpack打包过程中，按照文件类型使用不同的loader处理
+    配置：
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',//可以将es5+的js代码转化成旧版浏览器可读的代码
+                include: [resolve('src'), resolve('test')]
+                enforce:pre
+            },
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',//可以将es5+的js代码转化成旧版浏览器可读的代码
+                include: [resolve('src'), resolve('test')]
+            },
+        ]
+    }
+    eslint-loader规则必须要先于babel-loader规则
+    执行顺序从下到上
+    enforce 规定执行顺序 ： pre normal inline post
+plugin
+    配置：  
+        plugins:[
+            new CleanWebpackPlugin (),// 用于清除上次webpack打包生成的内容
+            new htmlWebpackPlugin({ //作用1：将html引入的外部资源每次编译后的hash放置浏览器使用缓存的元 2.可以生成创建html入口文件
+                filename: 'index.html',
+                template: 'index.html',
+                inject: 'head'
+            })
+        ]
