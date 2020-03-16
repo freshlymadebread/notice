@@ -37,6 +37,7 @@ css1
 	 子代选择器 >
 	 兄弟选择器 ~
 	 相邻兄弟选择器 + 
+	 相邻父元素选择器 closest
 5. 定位：position： static  | relative | absolute | fixed;
 		1.static : 默认的；元素按照正常排版进行布局
 		2.relative ： 元素占据原来文档流中的位置，可以进行偏移，会造成覆盖
