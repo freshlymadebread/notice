@@ -1,0 +1,9 @@
+jsbridge
+     JavaScript 提供调用 Native 功能的接口，让混合开发中的前端部分可以方便地使用 Native 的功能（例如：地址位置、摄像头）
+
+工作方法
+  js 调用 native
+    1. 监听劫持URL 定义协议和host 对此定义的url进行劫持
+    2. 注入 API 。通过 WebView 提供的接口，在JavaScript全局对象上注入接口，只要js代码调用该方法就回传到Native上
+  native 调用 js
+    直接使用webview 的接口执行js 全局声明的方法

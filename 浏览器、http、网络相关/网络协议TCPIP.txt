@@ -1,0 +1,7 @@
+1. 数据链路层 定义了单个链路上如何传输，与讨论的介质有关，例如完成信号频率的校对一致
+2. 网络层     IP协议 包括arp
+3. 传输层     消除不同网络间的差距 TCP    UDP：DNS
+4. 应用层     Telnet : 是Internet远程登录服务的标准协议和主要方式
+              FTP /SFTP : 用于传输文件的 实现过SMTP
+              HTTP ：
+              HTTPS ： HTTP + SLL

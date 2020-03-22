@@ -1,0 +1,27 @@
+class messageCenter(){
+    constructor(){
+        this.messageArray = {}
+    }
+    rej(messageName){
+        if(this.messageArray[messageName] != null) return '已经注册过了'
+       this.messageArray[messageName] =[]
+    }
+    sub(message,fn){
+        if(this.messageArray[messageName] == null) return '事件未注册'
+        this.messageArray[messageName].push(fn)
+
+    }
+    fire(messageName,msg){
+        if(this.messageArray[messageName] == null) return '事件未注册'
+        let event = {
+            messageName:'messageName',
+            msg
+        }
+        while(this.messageArray[messageName].length > 0){
+            let fn = this.messageArray[messageName].shift()
+            fn(event)
+        }
+    }
+}
+
+class 中方法的定义

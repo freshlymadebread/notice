@@ -1,0 +1,47 @@
+堆排序
+跨域的cookies opinion https
+TCP 3次握手过程 以及松手过程 
+进程和线程
+HTTPs 区别
+https2.0
+weakmap
+
+tree.shaking处理机制
+找相同字符串
+动态规划  斐波那楔数列或者背包问题的源码
+koa2 express 的区别
+WebView的概念
+JSbridge原理
+对node的使用和了解
+node的eventLoop
+
+React和Vue有什么区别
+vue路由的实现
+
+import既然是引用复制
+
+瑞卿的问题
+被问过的一下面试题：
+
+介绍Vue的生命周期
+React和Vue有什么区别
+写一个数组去重实现
+写一下快排，还知道别的排序吗？
+webpack知道些什么?
+介绍下事件循环
+webpack的hash有哪几种，有什么区别？
+vue的路由是怎么实现的？
+跨域介绍一下，手写一个jsonp
+介绍一下this，有哪几种情况
+es6了解吗，有哪些新特性
+前端有哪些优化
+你知道的最新的前端有哪些技术
+
+
+还不会的
+node的eventLoop
+vue的路由是怎么实现的？
+koa2 express 的区别
+
+一个好的项目
+一个难得问题

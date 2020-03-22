@@ -1,0 +1,9 @@
+OPTIONS 方法比较少见，该方法用于[请求服务器告知其"支持哪些其他的功能和方法"。]
+通过 OPTIONS 方法，可以询问服务器具体支持哪些方法，或者服务器会使用什么样的方法来处理一些特殊资源。
+跨域分为简单跨域请求和复杂跨域请求
+简单跨域请求不会触发options请求
+
+跨域请求时，触发条件：
+  1. 使用不是get post请求
+  2. 人为设置了以下集合之外的首部字段 : Accept/Accept-Language/Content-Language/Content-Type/DPR/Downlink/Save-Data/Viewport-Width/Width	
+  3. 3. Content-Type 的值不属于下列之一:	application/x-www-form-urlencoded、multipart/form-data、text/plain	
