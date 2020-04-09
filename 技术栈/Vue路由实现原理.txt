@@ -1,0 +1,26 @@
+大型单页应用最显著特点之一就是采用的前端路由系统，通过改变URL，在不重新请求页面的情况下，更新页面视图。
+更新视图但不重新请求页面，是前端路由原理的核心之一，目前在浏览器环境中这一功能的实现主要有2种方式：
+1. 使用window.history 的 pushstate、popstate和replaceState实现
+    但是会对服务器发起请求。 如果服务器没有对URL进行处理的话就会有问题。
+            window.history.pushState(stateObject,title,url)
+            window.history,replaceState(stateObject,title,url)
+2. 使用hash
+    hash就是url后边#后面的参数。本来作用是用来表示页面停留在哪一个位置
+    hash有以下几个特点：
+        1. 虽然在URL中，但是不会包括在http请求中，因此不会加载页面。
+        2. 可以为hash改变添加监听事件。window.addEventListener("hashchange",funcRef,false)
+        3. 每次改变hash，都会在浏览器访问历史中增加一个记录。window.localtion.hash  HashHistory
+
+
+
+调用history.pushState()相比于直接修改hash主要有以下优势：
+    pushState设置的新url可以是与当前url同源的任意url,而hash只可修改#后面的部分，故只可设置与当前同文档的url
+    pushState设置的新url可以与当前url一模一样，这样也会把记录添加到栈中，而hash设置的新值必须与原来不一样才会触发记录添加到栈中
+    pushState通过stateObject可以添加任意类型的数据记录中，而hash只可添加短字符串
+    pushState可额外设置title属性供后续使用
+
+
+    二维码的实现
+    TS
+    REACT vue 大项目
+     

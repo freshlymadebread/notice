@@ -1,0 +1,14 @@
+webview
+    WebView是android中一个非常重要的控件，它的作用是用来展示一个web页面。核心是webkit
+
+作用：
+    1. 显示和渲染页面
+    2. 与页面js交互，完成混合开发
+
+交互： 即 jsbridge
+js调用native
+    方法1 API注入 ，页面通过调用webview提供的接口，将交互接口注入到window对象中，即可使用
+    方法2 URL 劫持  约定 协议和host native 对约定的URL进行劫持
+native调用js
+    使用方法直接调用执行js代码 (?? 这个代码什么时候执行呢？)
+        webview.( jsString )

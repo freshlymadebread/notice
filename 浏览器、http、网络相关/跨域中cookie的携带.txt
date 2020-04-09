@@ -1,0 +1,4 @@
+一般情况下跨域请求不会发送cookie
+
+如果需要发送cookies，那么需要在CORS是，将access-control-allow-origin 设置成域名，
+客户端设置 所有请求携带 cookies
