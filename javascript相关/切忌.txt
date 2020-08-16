@@ -1,0 +1,5 @@
+this.chartArray = new Array(5).fill([])
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+  刚才我一个二维数组初始化用的
+    this.chartArray = new Array(5).fill([])
+然后我再给chartArray其中一个赋值，七月的就会给搜索的

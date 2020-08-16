@@ -1,0 +1,30 @@
+0. 
+    $router 是vuerouter对象，可以执行 push replace go back forword
+    $route 是当前的路由对象，可以获取当前的路由信息 router-view监听$route值渲染createElement
+    $route 是一个响应式的属性
+
+路由跳转方式：
+1.
+    <router-link  :to="{name:'Home'}">      //在路由文件中声明的name
+    <router-link  :to="{path:'/home'}">      //在路由文件中声明的path
+        ps : router-link中链接如果是'/'开始就是从根路由开始，如果开始不带'/'，则从当前路由开始
+    <router-link  :to="{path:'/home',params:{id:1}}"> 
+    <router-link  :to="{path:'/home',query:{id:1}}"> 
+        ps : params与query区别
+                a. params 相当于psot不会显示在url中，query相当于get，参数会显示
+                b. params刷新会丢失参数 query不会，因此除密码之外的采用query比较合适
+        取参数：this.$router.query.id  ||  this.$router.params.id
+2.
+    this.$router.push('/home')
+    this.$router.push({name:'Home'})
+    this.$router.push({path:'/home'})
+    this.$router.push({path:'/home',query:{id:1}})
+    this.$router.push({path:'/home',params:{id:1}})
+3.
+    this.$router.replace() (用法同上,push)
+    会替换掉上一个浏览记录，点击返回会回到上上个页面
+4. 
+    this.$router.go(n) 
+    向前或者向后跳转n个页面，n可为正整数或负整数
+5.
+    写router文件时，path 前如果有 / 代表时从根目录开始

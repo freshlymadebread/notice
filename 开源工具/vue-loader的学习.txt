@@ -1,0 +1,29 @@
+1. webpack的配置
+    使用 ：在rules中配置
+        rules:[{ test:/\.vue$/,loader:'vue-loader'}]  //即对.vue结尾的文件使用vue-loader处理
+        plugin:[new VueLoaderPlugin()]   //必须的插件，可以将定义过的其他规则复制到vue中的script和style块
+2. 处理资源路径
+    当vue loader编译template块时，它会将所有遇到的URL转化为webpack模块请求
+        如    ：<img src="../image.png">
+        转化为： createElement('img', {
+                    attrs: {
+                        src: require('../image.png') // 现在这是一个模块的请求了
+                    }
+                })
+    转换规则： 绝对地址保留，相对地址解析，~开头的当成npm包的模块依赖，@开头的当成内部变量的模块依赖，@符号是webpack中的alain别名配置
+    好处： file-loader 可以指定要复制和放置的资源文件位置，以及如何是哟航版本哈希获得更好的缓存。此外可以就近管理图片文件，使用相对路径不用担心部署时URL的问题。
+          url-loader允许将文件转换为内联的base-64URL，这会减少http请求
+3.预处理器
+    如 sass less babel ts pug
+    在 webpack 中，所有的预处理器需要匹配对应的 loader。
+4.scoped css
+    当style块中使用scoped进行修饰，他的css只作用于该组件中的元素
+        原理，将该组件中的标签加上额外的属性，并与css选择器进行关联
+    scoped css 会影响子组件的根元素
+    如果想要scoped中的css影响到子组件中其他元素，可以使用深度作用选择器  >>>
+    scoped渲染很慢
+5.热加载
+    不刷新页面的情况下被替换，保持了应用程序和被替换组件的当前状态
+    修改的是template：组件就地重新渲染，保留当前所有私有状态，因为模板被变异成了无副作用的渲染函数
+    script： 组件被销毁并重新创建，其他组件状态会被保留，因为钩子函数可能有副作用
+    style： 通过vue-style-loader自行热加载

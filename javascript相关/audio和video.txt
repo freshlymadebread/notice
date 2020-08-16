@@ -1,0 +1,29 @@
+
+https://www.w3school.com.cn/jsref/dom_obj_video.asp
+
+audio: 音频文件
+video: 视频文件
+方法:
+    load() 重新加载音频元素
+    play() 播放
+    pause() 暂停
+    fastSeek() 在音频中播放指定时间
+事件
+    canplay: 浏览器可以播放时触发
+    error：加载失败时触发
+    pause： 暂停时触发
+    play： 播放时触发
+    timeupdate： 播放位置触发
+    等
+属性
+    可以设置或者读取
+    autoplay	自动播放
+    controls	控制条
+    currentSrc  当前url
+    currentTime     当前播放时间
+    defaultMuted	 默认是否静音
+    duration        音频的持续时间
+    loop            播放完毕后是否循环
+    networkState    当前的网络状态
+    ended           视频是否结束
+

@@ -1,5 +1,5 @@
 数组去重
-1. 最快方法：利用对象键值
+1. 最快方法：利用对象键值 / 不是最快
 function nosame (a,b){
 	var var arr = a.concat(b),
 			obj = {},

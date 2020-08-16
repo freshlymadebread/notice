@@ -1,0 +1,8 @@
+1. 移动元素到可视页面，即滚动页面
+    document.getElementById('id').scrollIntoView({
+          behavior:'smooth',
+          block: 'center'
+          })
+    将id为'id'的元素平滑移动到页面的中心。
+2. 将某个容器移动到最上端
+    document.getElementById('id').scrolltop = 0

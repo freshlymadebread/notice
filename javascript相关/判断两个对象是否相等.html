@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>1.先判断俩者是不是对象</p>
+    <p>2.是对象后bai俩者长度是否一致</p>
+    <p>3.判断俩bai个对象的所有key值是否相等du相同</p>
+    <p>4.判断俩个对象的相应的key对应的值是否相同</p>
+    <p> 递归判断 </p>
+</body>
+<script>
+    function diff(obj1,obj2){
+        if(typeof obj1 !== typeof obj2) return false
+        if(!isObject(obj1)){
+            return obj1 === obj2
+        }
+        if(isFunction(obj1)){
+            return obj1.toString().replace(/ /g, '') === obj2.toString().replace(/ /g, '')
+        }
+        if(Object.keys(obj1).length !== Object.keys(obj2).length){
+            return false
+        }
+        for(let key of Object.keys(obj1)){
+            if(!diff(obj1[key],obj2[key])){
+                return false
+            }
+        }
+        return true
+    }
+    function isObject(obj) {
+        return obj instanceof Object
+    }
+    function isArray(obj) {
+        return obj instanceof Array
+    }
+    function isFunction(obj) {
+        return obj instanceof Function
+    }
+    diff({ name: '1' }, {name:'2'})
+</script>
+</html>

@@ -1,0 +1,27 @@
+实习之后真真正正地上手操作了webpack
+1. loader 加载器
+    vue-loader ： 解析spa（单文件结构），并且可以指定不同的webpack loader处理不同部分
+        template转换为render函数，内部的url转换为request
+    babel-loader: 用于将高版本的js语言转化为低版本浏览器可以接受的语言
+    url-loader： url加载
+    加载顺序：enforce：pre nomal next
+    file-loader和url-loader：urlloader依赖 file-loader，如果超过limit 就使用file-loader处理
+2. plug-in 插件
+    UglifyJsPlugi：插件用来缩小（压缩优化）js文件
+    CommonsChunkPlugin： 用来缩小（压缩优化）js文件
+    HotModuleReplacementPlugin： 热加载插件
+    DefinePlugin ： 声明全局变量
+    NamedModulesPlugin 开启HMR 可以显示模块的相对路径
+    NoEmitOnErrorsPlugin： 编译错误时，跳过输出阶段，确保输出资源不会包含错误。
+    HtmlWebpackPlugin： 用于生成一个HTML文件
+    CopyWebpackPlugin： 编译时，用于拷贝文件（static资源的请求）
+3. 打包文件位置及引用地址
+    index: path.resolve(__dirname, '../dist/index.html'),// Paths
+    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsSubDirectory: './assets/',
+    assetsPublicPath: './hello/',
+
+    index： 模板的输出位置
+    assetsRoot 将文件夹打包到什么位置什么名字 上边的默认配置是：配置到上级目录的dist文件夹中
+    assetsSubDirectory 资源打包放到assetsRoot的哪个文价夹中   即打包的位置 前缀目录是 assetsRoot的dist
+    assetsPublicPath 是index.html引用资源加的前缀
