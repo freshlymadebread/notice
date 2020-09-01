@@ -1,0 +1,22 @@
+
+vue 渲染流程
+
+1. render template el-》dom
+2. 将optiosn中的data挂载到data上，data 进行劫持： 使用 
+	Object.definedPropertry(obj, key, {
+		set:(newValue)=>{
+			obj[key] = newValue
+			for(let obj of obeserve[key]){
+				obj.dothis()
+			}
+		},get:()=>{
+			if(obeserve[key]){
+				obeserve[key].push( ? )
+			}
+			return obj[key]
+		}
+	})
+
+3. 模板解析： 所有的template的el挂载的dom都会被最终变为render函数
+	首先会变为AST语法树，然后变为render函数
+4. 先虚后实
