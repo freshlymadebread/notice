@@ -1,0 +1,47 @@
+浏览器基础
+1. 从网页输入url到渲染出一个html页面的整个流程
+2. 跨域问题。解决方案。
+3. 浏览器对象模型 window对象对象常见的方法
+4. 浏览器解析html到展示的工作流程。
+5. 网络七层协议
+6. 网络安全：了解常见的前端攻击方式。
+7. TCP 连接三次握手；断开4次挥手。
+8. 服务端与客户端的实时通讯： 长轮询 短轮询 WebSocket
+9. HTTP1.0 / HTTP1.1 / HTTP2.0 区别 ； https与http的区别
+10. 常见的请求方式： get post head put delete options(options预检用于什么情况？实际场景：跨域等非简单请求)
+11. 浏览器缓存。expires cache-control。
+12. 浏览器优化的方案。
+13. 浏览器前端存储的几种方式优缺点
+14. 线程和进程。js单线程。
+
+js
+1. ES6语法：按照阮一峰书的顺序背一遍
+2. prototype原型链
+3. 箭头函数； 闭包；函数式编程。
+4. 事件代理（委托）：事件冒泡。事件冒泡和事件捕捉。
+5. 宏任务和微任务。js里面的eventloop。promise setTimeout的输出结果。
+6. 常见的手写程序： 数据去重；生成n个在区间 [min, max] 随机数；大数（string类型）的加减运算；两个对象是否相等；深拷贝对象。
+7. 常见的手写源码： promise的实现(重要); appy call bind的实现。了解订阅发布模式（如同promise，自动扩展vue的数据劫持）。
+8. 常见的手写算法： 排序算法（快速，，堆排序）；遍历树的算法（前中后，递归和非递归，搞懂思想，基本上遇到树的问题都用到）；背包问题和斐波拉契函数（搞懂思想）。
+9. js垃圾回收逻辑。weakmap。
+10. import（es6） 和 require(commonjs) 的区别 
+
+VUE
+1. 原理。搞懂！
+2. new Vue(options),之后的逻辑。
+3. 与react / jquery 的区别。优缺点
+4. 生命周期
+5. vue路由的实现方式
+
+css
+1. flex 常见用吗
+2. 垂直居中的方式
+3. 隐藏元素的所有方式及其区别
+4. css3中 translation animation 的使用
+5. css3中 新加的属性
+6. css的选择器的使用
+
+webpack
+1. loader和 plugin 的区别
+2. tree-shaking
+3. 常见的plugin机器作用；常见的loader及其作用
